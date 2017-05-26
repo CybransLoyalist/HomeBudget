@@ -3,42 +3,111 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - HomeBudget</title>
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("HomeBudget", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li class="dropdown" id="styleChangeDropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="changeStyle('Moonlight');">Moonlight</a></li>
+                            <li><a href="#" onclick="changeStyle('Terra');">Terra</a></li>
+                        </ul>
+                    </li>
+
                 </ul>
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container-fluid body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
-
+    
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    
+@Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+<link id="pagestyle" rel="stylesheet" type="text/css" href="/Content/Terra.css">
+<script type="text/javascript">
+    
+    $(function () {
+        var currentStyle = readCookie("CurrentStyle");
+        if (typeof currentStyle === 'undefined') {
+            writeCookie("CurrentStyle", "/Content/Moonlight.css", 10);
+        }
+    });
+
+    setStyleBasingOnCookie();
+
+    function changeStyle(styleName) {
+        switch (styleName) {
+            case 'Moonlight':
+                writeCookie("CurrentStyle", "/Content/Moonlight.css", 10);
+                setStyleBasingOnCookie();
+
+                break;
+            case 'Terra':
+                writeCookie("CurrentStyle", "/Content/Terra.css", 10);
+                setStyleBasingOnCookie();
+
+                break;
+            default:
+                break;
+        }
+    }
+
+    function setStyleBasingOnCookie() {
+        document.getElementById("pagestyle").setAttribute("href", readCookie("CurrentStyle"));
+    }
+
+    function writeCookie(name,value,days) {
+        var date, expires;
+        if (days) {
+            date = new Date();
+            date.setTime(date.getTime()+(days*24*60*60*1000));
+            expires = "; expires=" + date.toGMTString();
+        }else{
+            expires = "";
+        }
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+
+    function readCookie(name) {
+        var i, c, ca, nameEQ = name + "=";
+        ca = document.cookie.split(';');
+        for(i=0;i < ca.length;i++) {
+            c = ca[i];
+            while (c.charAt(0)==' ') {
+                c = c.substring(1,c.length);
+            }
+            if (c.indexOf(nameEQ) == 0) {
+                return c.substring(nameEQ.length,c.length);
+            }
+        }
+        return '';
+    }
+</script>

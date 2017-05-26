@@ -29,5 +29,7 @@ namespace HomeBudget.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<HomeBudget.Models.Sheet> Sheets { get; set; }
     }
 }
