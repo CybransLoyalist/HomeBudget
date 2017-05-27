@@ -1,4 +1,5 @@
-﻿<div class="navbar navbar-default navbar-fixed-top">
+﻿@using HomeBudget.App_Code
+<div class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -16,58 +17,32 @@
                 <li class="dropdown" id="styleChangeDropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Change style<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li>
-                            <div class="container" style="width: 200px;">
-                                <div class="row no-gutter" onclick="changeStyle('Moonlight')">
-                                    <div class="col-xs-6" style="margin-left: 10px">
-                                        Moonlight
+                        @{
+                            var styleNames = Enum.GetNames(typeof(ChoosableStyle)).ToList();
+                            var colorsCountInEachStyle = 5;
+                            foreach (var styleName in styleNames)
+                            {
+                                <li>
+                                    <div class="container" style="width: 200px;">
+                                        <div class="row no-gutter" onclick="changeStyle('@styleName')">
+                                            <div class="col-xs-6" style="margin-left: 10px">
+                                                @styleName
+                                            </div>
+                                            @{
+                                                for (int i = 0; i < colorsCountInEachStyle; ++i)
+                                                {
+                                                    <div class="col-xs-1">
+                                                        <div class="colorPaletteElem" id="@(styleName + (i + 1))"></div>
+                                                    </div>
+                                                }
+                                            }
+                                            <div class="col-xs-1">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-xs-1">
-                                        <div class="colorPaletteElem" id="Moonlight1"></div>
-                                    </div>
-                                    <div class="col-xs-1">
-                                        <div class="colorPaletteElem" id="Moonlight2"></div>
-                                    </div>
-                                    <div class="col-xs-1">
-                                        <div class="colorPaletteElem" id="Moonlight3"></div>
-                                    </div>
-                                    <div class="col-xs-1">
-                                        <div class="colorPaletteElem" id="Moonlight4"></div>
-                                    </div>
-                                    <div class="col-xs-1">
-                                        <div class="colorPaletteElem" id="Moonlight5"></div>
-                                    </div>
-                                    <div class="col-xs-1">
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="container" style="width: 200px">
-                                <div class="row no-gutter" onclick="changeStyle('Terra');">
-                                    <div class="col-xs-6" style="margin-left: 10px">
-                                        Terra
-                                    </div>
-                                    <div class="col-xs-1">
-                                        <div class="colorPaletteElem" id="Terra1"></div>
-                                    </div>
-                                    <div class="col-xs-1">
-                                        <div class="colorPaletteElem" id="Terra2"></div>
-                                    </div>
-                                    <div class="col-xs-1">
-                                        <div class="colorPaletteElem" id="Terra3"></div>
-                                    </div>
-                                    <div class="col-xs-1">
-                                        <div class="colorPaletteElem" id="Terra4"></div>
-                                    </div>
-                                    <div class="col-xs-1">
-                                        <div class="colorPaletteElem" id="Terra5"></div>
-                                    </div>
-                                    <div class="col-xs-1">
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                                </li>
+                                                }
+                        }
                     </ul>
                 </li>
 
