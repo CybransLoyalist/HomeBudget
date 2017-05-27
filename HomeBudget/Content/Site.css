@@ -33,7 +33,7 @@ hr {
    will truncate terms that are too long to fit in the left column 
 */
 .dl-horizontal dt {
-    white-space: normal;
+    white-space: normal; /*Sequences of whitespace will collapse into a single whitespace. Text will wrap when necessary. This is default*/
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -44,13 +44,13 @@ textarea {
 }
 
 .table {
-    border-collapse: collapse;
+    border-collapse: collapse; /*znaczy sie ze stykajace sie bordery w tabelce sie zleją w jeden*/
 }
 
-.table, th, td {
+.table, th, td { /*ten zapis oznacza ze ten sam styl dotyczy zarowno elementow o klasie table, jak i elementow table header i table data*/
     border: 1px solid var(--color1);
 }
-.table thead > tr > th,
+.table thead > tr > th, /*to oznacza ze dla wszystkich th bedących bezsposrednimi dziecmi tr bedacych bezposrednimi dziecmi thead bedacych jakimikolwiek potomkami elementu o klasie table*/
 .table tbody > tr > th,
 .table tfoot > tr > th,
 .table thead > tr > td,
@@ -67,9 +67,11 @@ textarea {
     background-color: var(--color5);
     border-color: var(--color4);
 }
-/* Title */
-.navbar-default .navbar-brand {
-    color: var(--color2);
+
+/*btw navbar-collapse - czyli jak sie zmniejszy strone to sie zapadnie*/
+/*navbar-brand to ten pierwszy duzy kafelek*/
+.navbar-default .navbar-brand { /*element o klasie navbar-brand będący jakimkolwiek potomkiem elementu o klasie navbar-default*/
+    color: pink; /*color oznacza kolor tekstu*/
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
