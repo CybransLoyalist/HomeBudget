@@ -7,6 +7,7 @@
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
 
 </head>
 <body>
@@ -16,101 +17,9 @@
     <hr/>
 </div>
 
-@Scripts.Render("~/bundles/jquery")
 
 @Scripts.Render("~/bundles/bootstrap")
 @RenderSection("scripts", required: false)
 </body>
 </html>
 
-<link id="pagestyle" rel="stylesheet" type="text/css" href="/Content/Terra.css">
-<script type="text/javascript">
-
-    
-
-    function getCssFromFile(filePath, propertyName) {
-
-        var text;
-        $.ajax({
-            url: filePath,
-            async: false,   // asynchronous request? (synchronous requests are discouraged...)
-            cache: false,   // with this, you can force the browser to not make cache of the retrieved data
-            dataType: "text",  // jQuery will infer this, but you can set explicitly
-            success: function( data, textStatus, jqXHR ) {
-                text = data; 
-            }
-        });
-        var startIndex = text.search(propertyName) + propertyName.length + 2;
-        return text.substr(startIndex, 7);
-
-    }
-
-    $(function () {
-        var currentStyle = readCookie("CurrentStyle");
-        if (typeof currentStyle === 'undefined') {
-            writeCookie("CurrentStyle", "/Content/Moonlight.css", 10);
-        }
-        $("#Moonlight1").css("background", getCssFromFile("/Content/Moonlight.css", '--color1'));
-        $("#Moonlight2").css("background", getCssFromFile("/Content/Moonlight.css", '--color2'));
-        $("#Moonlight3").css("background", getCssFromFile("/Content/Moonlight.css", '--color3'));
-        $("#Moonlight4").css("background", getCssFromFile("/Content/Moonlight.css", '--color4'));
-        $("#Moonlight5").css("background", getCssFromFile("/Content/Moonlight.css", '--color5'));
-
-        $("#Terra1").css("background", getCssFromFile("/Content/Terra.css", '--color1'));
-        $("#Terra2").css("background", getCssFromFile("/Content/Terra.css", '--color2'));
-        $("#Terra3").css("background", getCssFromFile("/Content/Terra.css", '--color3'));
-        $("#Terra4").css("background", getCssFromFile("/Content/Terra.css", '--color4'));
-        $("#Terra5").css("background", getCssFromFile("/Content/Terra.css", '--color5'));
-
-    });
-
-    setStyleBasingOnCookie();
-
-    function changeStyle(styleName) {
-        switch (styleName) {
-            case 'Moonlight':
-                writeCookie("CurrentStyle", "/Content/Moonlight.css", 10);
-                setStyleBasingOnCookie();
-
-                break;
-            case 'Terra':
-                writeCookie("CurrentStyle", "/Content/Terra.css", 10);
-                setStyleBasingOnCookie();
-
-                break;
-            default:
-                break;
-        }
-    }
-
-    function setStyleBasingOnCookie() {
-        document.getElementById("pagestyle").setAttribute("href", readCookie("CurrentStyle"));
-    }
-
-    function writeCookie(name, value, days) {
-        var date, expires;
-        if (days) {
-            date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            expires = "; expires=" + date.toGMTString();
-        } else {
-            expires = "";
-        }
-        document.cookie = name + "=" + value + expires + "; path=/";
-    }
-
-    function readCookie(name) {
-        var i, c, ca, nameEQ = name + "=";
-        ca = document.cookie.split(';');
-        for (i = 0; i < ca.length; i++) {
-            c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1, c.length);
-            }
-            if (c.indexOf(nameEQ) == 0) {
-                return c.substring(nameEQ.length, c.length);
-            }
-        }
-        return '';
-    }
-</script>

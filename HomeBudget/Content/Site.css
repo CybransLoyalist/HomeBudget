@@ -43,6 +43,14 @@ textarea {
     max-width: 280px;
 }
 
+.form-control {
+    background-color: var(--color2);
+}
+
+/*input[type="checkbox"] {
+    background-color: yellow;
+}*/
+
 .table {
     border-collapse: collapse; /*znaczy sie ze stykajace sie bordery w tabelce sie zleją w jeden*/
 }
@@ -70,9 +78,9 @@ textarea {
 
 /*btw navbar-collapse - czyli jak sie zmniejszy strone to sie zapadnie*/
 /*navbar-brand to ten pierwszy duzy kafelek*/
-.navbar-default .navbar-brand { /*element o klasie navbar-brand będący jakimkolwiek potomkiem elementu o klasie navbar-default*/
-    color: pink; /*color oznacza kolor tekstu*/
-}
+    .navbar-default .navbar-brand { /*element o klasie navbar-brand będący jakimkolwiek potomkiem elementu o klasie navbar-default*/
+        color: var(--color2); /*color oznacza kolor tekstu*/
+    }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
     color: var(--color3);
@@ -149,4 +157,52 @@ textarea {
 ul .dropdown-menu {
     background-color: var(--color5);
     border-radius: 10px;
+}
+/* Red CSS Checkbox approach !1!*/
+.red-checkbox {
+	width: 25px;
+	position: relative;
+}
+.red-checkbox label {
+	cursor: pointer;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	top: 0;
+  	left: 0;
+	background: #eee;
+	border:1px solid #ddd;
+}
+
+    .red-checkbox label:after {
+        opacity: 0.0;
+        content: '';
+        position: absolute;
+        width: 9px;
+        height: 5px;
+        background: transparent;
+        top: 6px;
+        left: 7px;
+        border: 3px solid red;
+        border-top: none;
+        border-right: none;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: translate(0px, 3px) rotate(-45deg);
+    }
+
+/**
+ * Create the hover event of the tick
+ */
+.red-checkbox label:hover::after {
+	opacity: 0.5;
+}
+
+/**
+ * Create the checkbox state for the tick
+ */
+.red-checkbox input[type=checkbox]:checked + label:after {
+	opacity: 1;
 }

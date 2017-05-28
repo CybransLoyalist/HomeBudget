@@ -1,4 +1,5 @@
-﻿@using HomeBudget.Models
+﻿@using HomeBudget.App_Code
+@using HomeBudget.Models
 @model LoginViewModel
 @{
     ViewBag.Title = "Log in";
@@ -30,10 +31,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
-                        </div>
+                        @Html.StylishCheckBoxFor(m => m.RememberMe, "Remember me?")
                     </div>
                 </div>
                 <div class="form-group">

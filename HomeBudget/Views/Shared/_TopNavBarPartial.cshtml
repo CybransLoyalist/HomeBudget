@@ -1,4 +1,5 @@
 ﻿@using HomeBudget.App_Code
+
 <div class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -41,7 +42,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                                }
+                           }
                         }
                     </ul>
                 </li>
@@ -52,3 +53,51 @@
         </div>
     </div>
 </div>
+
+<link id="pagestyle" rel="stylesheet" type="text/css" href="/Content/Terra.css">
+<script src="/Scripts/Local/Cookies.js" type="text/javascript"></script>
+<script type="text/javascript">
+    function getCssFromFile(filePath, propertyName) {
+        var text;
+        $.ajax({
+            url: filePath,
+            async: false,   // asynchronous request? (synchronous requests are discouraged...)
+            cache: false,   // with this, you can force the browser to not make cache of the retrieved data
+            dataType: "text",  // jQuery will infer this, but you can set explicitly
+            success: function (data, textStatus, jqXHR) {
+                text = data;
+            }
+        });
+        var startIndex = text.search(propertyName) + propertyName.length + 2;
+        return text.substr(startIndex, 7);
+    }
+
+    $(function () {
+        var currentStyle = readCookie("CurrentStyle");
+        if (typeof currentStyle === 'undefined') {
+            writeCookie("CurrentStyle", "/Content/Moonlight.css", 10);
+        }
+        @{
+            foreach (var styleName in styleNames)
+            {
+                for (int i = 0; i < colorsCountInEachStyle; ++i)
+                {
+                    <text>
+                        $("#@(styleName + (i + 1))").css("background", getCssFromFile("/Content/@(styleName).css", '--color@(i+1)'));
+                    </text>
+                }
+            }
+        }
+    });
+
+    setStyleBasingOnCookie();
+
+    function changeStyle(styleName) {
+        writeCookie("CurrentStyle", "/Content/" + styleName+".css", 10);
+        setStyleBasingOnCookie();
+    }
+
+    function setStyleBasingOnCookie() {
+        document.getElementById("pagestyle").setAttribute("href", readCookie("CurrentStyle"));
+    }
+</script>
