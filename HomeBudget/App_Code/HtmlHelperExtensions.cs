@@ -18,7 +18,7 @@ namespace HomeBudget.App_Code
             var name = GetName(expression);
 
             var result = new StringBuilder();
-            result.Append("<div class=\"red-checkbox\" style=\"width: 250px\">");
+            result.Append("<div class=\"stylish-checkbox\" style=\"width: 250px\">");
             result.Append(
                 "<input data-val=\"true\" data-val-required=\"The "+ labelText + " field is required.\" id=\""+ name + "\" name=\""+ name + "\" type=\"checkbox\" value=\"true\" />");
             result.Append(
@@ -36,7 +36,7 @@ namespace HomeBudget.App_Code
     }
 }
 
-//<div class="red-checkbox" style="width: 250px">
+//<div class="stylish-checkbox" style="width: 250px">
 //<input data-val="true" data-val-required="The Remember me? field is required." id="RememberMe" name="RememberMe" type="checkbox" value="true" />
 //<label for="RememberMe"></label><span style = "padding-left: 10px; font-weight: bold" > Remember me?</span>
 //<input name = "RememberMe" type="hidden" value="false" />

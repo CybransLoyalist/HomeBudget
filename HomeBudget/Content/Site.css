@@ -58,17 +58,18 @@ textarea {
 .table, th, td { /*ten zapis oznacza ze ten sam styl dotyczy zarowno elementow o klasie table, jak i elementow table header i table data*/
     border: 1px solid var(--color1);
 }
-.table thead > tr > th, /*to oznacza ze dla wszystkich th bedących bezsposrednimi dziecmi tr bedacych bezposrednimi dziecmi thead bedacych jakimikolwiek potomkami elementu o klasie table*/
-.table tbody > tr > th,
-.table tfoot > tr > th,
-.table thead > tr > td,
-.table tbody > tr > td,
-.table tfoot > tr > td {
-    padding: 8px;
-    line-height: 1.428571429;
-    vertical-align: top;
-    border-top: 1px solid var(--color1);
-}
+
+    .table thead > tr > th, /*to oznacza ze dla wszystkich th bedących bezsposrednimi dziecmi tr bedacych bezposrednimi dziecmi thead bedacych jakimikolwiek potomkami elementu o klasie table*/
+    .table tbody > tr > th,
+    .table tfoot > tr > th,
+    .table thead > tr > td,
+    .table tbody > tr > td,
+    .table tfoot > tr > td {
+        padding: 8px;
+        line-height: 1.428571429;
+        vertical-align: top;
+        border-top: 1px solid var(--color1);
+    }
 
 /* navbar */
 .navbar-default {
@@ -76,67 +77,77 @@ textarea {
     border-color: var(--color4);
 }
 
-/*btw navbar-collapse - czyli jak sie zmniejszy strone to sie zapadnie*/
-/*navbar-brand to ten pierwszy duzy kafelek*/
+    /*btw navbar-collapse - czyli jak sie zmniejszy strone to sie zapadnie*/
+    /*navbar-brand to ten pierwszy duzy kafelek*/
     .navbar-default .navbar-brand { /*element o klasie navbar-brand będący jakimkolwiek potomkiem elementu o klasie navbar-default*/
         color: var(--color2); /*color oznacza kolor tekstu*/
     }
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-    color: var(--color3);
-}
-/* Link */
-.navbar-default .navbar-nav > li > a {
-    color: var(--color1);
-    font-weight: bold;
-}
-.navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus {
-    color: var(--color2);
-}
+
+        .navbar-default .navbar-brand:hover,
+        .navbar-default .navbar-brand:focus {
+            color: var(--color3);
+        }
+    /* Link */
+    .navbar-default .navbar-nav > li > a {
+        color: var(--color1);
+        font-weight: bold;
+    }
+
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+            color: var(--color2);
+        }
+
     .navbar-default .navbar-nav > .active > a,
     .navbar-default .navbar-nav > .active > a:hover,
     .navbar-default .navbar-nav > .active > a:focus {
         color: red;
         background-color: red;
     }
+
     .navbar-default .navbar-nav > .open > a,
     .navbar-default .navbar-nav > .open > a:hover,
     .navbar-default .navbar-nav > .open > a:focus {
         color: var(--color2);
         background-color: var(--color4);
     }
-/* Caret */
+    /* Caret */
     .navbar-default .navbar-nav > .dropdown > a .caret {
         border-top-color: var(--color2);
         border-bottom-color: var(--color2);
     }
-.navbar-default .navbar-nav > .dropdown > a:hover .caret,
-.navbar-default .navbar-nav > .dropdown > a:focus .caret {
-    border-top-color: var(--color3);
-    border-bottom-color: var(--color3);
-}
+
+    .navbar-default .navbar-nav > .dropdown > a:hover .caret,
+    .navbar-default .navbar-nav > .dropdown > a:focus .caret {
+        border-top-color: var(--color3);
+        border-bottom-color: var(--color3);
+    }
+
     .navbar-default .navbar-nav > .open > a .caret,
     .navbar-default .navbar-nav > .open > a:hover .caret,
     .navbar-default .navbar-nav > .open > a:focus .caret {
         border-top-color: var(--color3);
         border-bottom-color: var(--color3);
     }
-/* Mobile version */
+    /* Mobile version */
     .navbar-default .navbar-toggle {
         border-color: red;
     }
-    .navbar-default .navbar-toggle:hover,
-    .navbar-default .navbar-toggle:focus {
-        background-color: red;
-    }
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: red;
-}
+
+        .navbar-default .navbar-toggle:hover,
+        .navbar-default .navbar-toggle:focus {
+            background-color: red;
+        }
+
+        .navbar-default .navbar-toggle .icon-bar {
+            background-color: red;
+        }
+
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
         color: red;
     }
+
         .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
         .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
             color: red;
@@ -158,51 +169,51 @@ ul .dropdown-menu {
     background-color: var(--color5);
     border-radius: 10px;
 }
-/* Red CSS Checkbox approach !1!*/
-.red-checkbox {
-	width: 25px;
-	position: relative;
-}
-.red-checkbox label {
-	cursor: pointer;
-	position: absolute;
-	width: 25px;
-	height: 25px;
-	top: 0;
-  	left: 0;
-	background: #eee;
-	border:1px solid #ddd;
+
+.stylish-checkbox {
+    width: 25px;
+    position: relative;
 }
 
-    .red-checkbox label:after {
-        opacity: 0.0;
-        content: '';
-        position: absolute;
-        width: 9px;
-        height: 5px;
-        background: transparent;
-        top: 6px;
-        left: 7px;
-        border: 3px solid red;
-        border-top: none;
-        border-right: none;
-        -webkit-transform: rotate(-45deg);
-        -moz-transform: rotate(-45deg);
-        -o-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-        transform: translate(0px, 3px) rotate(-45deg);
-    }
-
-/**
- * Create the hover event of the tick
- */
-.red-checkbox label:hover::after {
-	opacity: 0.5;
+.stylish-checkbox label {
+    cursor: pointer;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 0;
+    left: 0;
+    background: #eee;
+    border: 1px solid #ddd;
 }
 
-/**
- * Create the checkbox state for the tick
- */
-.red-checkbox input[type=checkbox]:checked + label:after {
-	opacity: 1;
+.stylish-checkbox label:after {
+    opacity: 0.0;
+    content: '';
+    position: absolute;
+    width: 9px;
+    height: 5px;
+    background: transparent;
+    top: 6px;
+    left: 7px;
+    border: 3px solid var(--color5);
+    border-top: none;
+    border-right: none;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: translate(0px, 3px) rotate(-45deg);
+}
+
+.stylish-checkbox label:hover::after {
+    opacity: 0.5;
+}
+
+.stylish-checkbox input[type=checkbox]:checked + label:after {
+    opacity: 1;
+}
+
+.btn-default {
+    background-color: var(--color5);
+    color: var(--color1)
 }
