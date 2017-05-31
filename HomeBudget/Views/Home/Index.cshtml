@@ -1,3 +1,32 @@
-﻿@{
+﻿@model List<List<HomeBudget.Controllers.TableCell>>
+@{
     ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm("OnSubmit", "Home"))
+{
+    <table class="table-bordered dataTable">
+        <tr>
+            <th>
+                aa
+            </th>
+            <th >bb</th>
+        </tr>
+
+        @foreach (var item in Model) {
+            <tr>
+                @foreach (var str in item)
+                {
+                    <td>
+                        <input style="background-color: @str.BackgroundColor" id="str" name="str" value="@str.Value" type="text" class="form-control">
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+    <script>
+        $("th").resizable();
+
+    </script>
+    <input type="submit" value="Save changes" class="btn btn-default" />
 }

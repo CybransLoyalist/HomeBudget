@@ -217,3 +217,24 @@ ul .dropdown-menu {
     background-color: var(--color5);
     color: var(--color1)
 }
+
+.dataTable , .dataTable th, .dataTable td{
+    border-width: 0 !important
+}
+
+
+.dataTable th, .dataTable input {
+    padding: 0;
+    padding-left: 5px
+}
+
+.dataTable input {
+    width: 100%;
+    max-height: 23px
+}
+
+
+/*.dataTable td:nth-child(4n+1) .form-control ,*/
+/*.dataTable td:nth-child(4n+2) .form-control {*/
+/*    background-color: var(--color3);*/
+/*}*/
