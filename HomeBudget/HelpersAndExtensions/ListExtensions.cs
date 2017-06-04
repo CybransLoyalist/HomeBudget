@@ -10,7 +10,7 @@ namespace HomeBudget.Extensions
         {
             if (source == null)
             {
-                throw new ArgumentNullException("source");
+                throw new ArgumentNullException("To2DArray - input list cannot be null!");
             }
 
             int max = source.Select(l => l).Max(l => l.Count());

@@ -2,7 +2,7 @@
 using HomeBudget.Helpers;
 using NUnit.Framework;
 
-namespace HomeBusgetTests
+namespace HomeBudgetTests.Helpers
 {
     [TestFixture]
     public class FlatToMultidimensionalArrayTests

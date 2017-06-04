@@ -45,7 +45,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FlatToMultidimensionalArrayTests.cs" />
+    <Compile Include="Helpers\FlatToMultidimensionalArrayTests.cs" />
+    <Compile Include="Helpers\ListExtensionsTests.cs" />
     <Compile Include="TableTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
