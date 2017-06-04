@@ -198,8 +198,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="App_Code\ExcludeFromCoverageAttribute.cs" />
+    <Compile Include="Helpers\FlatToMultidimensionalArray.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Tables\Table.cs" />
+    <Compile Include="Controllers\TableRow.cs" />
+    <Compile Include="Extensions\ListExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -207,13 +212,13 @@
     <Compile Include="Migrations\201705231840175_initialMigration.Designer.cs">
       <DependentUpon>201705231840175_initialMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705231845577_addingSheetModel.cs" />
-    <Compile Include="Migrations\201705231845577_addingSheetModel.Designer.cs">
-      <DependentUpon>201705231845577_addingSheetModel.cs</DependentUpon>
+    <Compile Include="Migrations\201705231845577_addingSheetModelMigration.cs" />
+    <Compile Include="Migrations\201705231845577_addingSheetModelMigration.Designer.cs">
+      <DependentUpon>201705231845577_addingSheetModelMigration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705242021555_test1.cs" />
-    <Compile Include="Migrations\201705242021555_test1.Designer.cs">
-      <DependentUpon>201705242021555_test1.cs</DependentUpon>
+    <Compile Include="Migrations\201705242021555_test1Migration.cs" />
+    <Compile Include="Migrations\201705242021555_test1Migration.Designer.cs">
+      <DependentUpon>201705242021555_test1Migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -347,11 +352,11 @@
     <EmbeddedResource Include="Migrations\201705231840175_initialMigration.resx">
       <DependentUpon>201705231840175_initialMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705231845577_addingSheetModel.resx">
-      <DependentUpon>201705231845577_addingSheetModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705231845577_addingSheetModelMigration.resx">
+      <DependentUpon>201705231845577_addingSheetModelMigration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705242021555_test1.resx">
-      <DependentUpon>201705242021555_test1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705242021555_test1Migration.resx">
+      <DependentUpon>201705242021555_test1Migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -7,9 +7,9 @@ namespace HomeBudget.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addingSheetModel : IMigrationMetadata
+    public sealed partial class addingSheetModelMigration : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addingSheetModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addingSheetModelMigration));
         
         string IMigrationMetadata.Id
         {

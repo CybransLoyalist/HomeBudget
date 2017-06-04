@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using HomeBudget.Controllers.Tables;
+using HomeBudget.Extensions;
+using HomeBudget.Helpers;
 
 namespace HomeBudget.Controllers
 {
@@ -11,6 +13,7 @@ namespace HomeBudget.Controllers
         public string Value { get; set; }
         public string BackgroundColor { get; set; }
     }
+
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -25,19 +28,21 @@ namespace HomeBudget.Controllers
                 row2,
                 row3
             };
+                        var data2 = new List<List<TableCell>>();
+                        for(int i = 0; i < data.Count; ++i)
+                        {
+                            var list = new List<TableCell>();
+                            for (int j = 0; j < data[0].Count; ++j)
+                            {
+                                list.Add(new TableCell {Value = data[i][j], BackgroundColor = (j%4 == 0 || j%4 == 1) ? "var(--color2)" : "var(--color3)"});
+                            }
+                            data2.Add(list);
+                        }
 
-            var data2 = new List<List<TableCell>>();
-            for(int i = 0; i < data.Count; ++i)
-            {
-                var list = new List<TableCell>();
-                for (int j = 0; j < data[0].Count; ++j)
-                {
-                    list.Add(new TableCell {Value = data[i][j], BackgroundColor = (j%4 == 0 || j%4 == 1) ? "var(--color2)" : "var(--color3)"});
-                }
-                data2.Add(list);
-            }
+            var table = new Table(data2.To2DArray());
 
-            return View(data2);
+
+            return View(table);
         }
 
         public ActionResult About()
@@ -55,8 +60,11 @@ namespace HomeBudget.Controllers
         }
 
         [HttpPost]
-        public ActionResult OnSubmit(string[] str)
+        public ActionResult OnSubmit(string[] cells, int rowsCount, int columnsCount)
         {
+            var cells2 = FlatToMultidimensionalArray.Fold(cells.Select(a => new TableCell {Value = a}).ToArray(), rowsCount, columnsCount);
+
+            var table = new Table(cells2);
             throw new NotImplementedException();
         }
     }

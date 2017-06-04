@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace HomeBudget.Models
 {
+    [ExcludeFromCoverage]
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
@@ -10,11 +11,13 @@ namespace HomeBudget.Models
         public string Email { get; set; }
     }
 
+    [ExcludeFromCoverage]
     public class ExternalLoginListViewModel
     {
         public string ReturnUrl { get; set; }
     }
 
+    [ExcludeFromCoverage]
     public class SendCodeViewModel
     {
         public string SelectedProvider { get; set; }
@@ -23,6 +26,7 @@ namespace HomeBudget.Models
         public bool RememberMe { get; set; }
     }
 
+    [ExcludeFromCoverage]
     public class VerifyCodeViewModel
     {
         [Required]
@@ -39,6 +43,7 @@ namespace HomeBudget.Models
         public bool RememberMe { get; set; }
     }
 
+    [ExcludeFromCoverage]
     public class ForgotViewModel
     {
         [Required]
@@ -46,6 +51,7 @@ namespace HomeBudget.Models
         public string Email { get; set; }
     }
 
+    [ExcludeFromCoverage]
     public class LoginViewModel
     {
         [Required]
@@ -62,6 +68,7 @@ namespace HomeBudget.Models
         public bool RememberMe { get; set; }
     }
 
+    [ExcludeFromCoverage]
     public class RegisterViewModel
     {
         [Required]
@@ -81,6 +88,7 @@ namespace HomeBudget.Models
         public string ConfirmPassword { get; set; }
     }
 
+    [ExcludeFromCoverage]
     public class ResetPasswordViewModel
     {
         [Required]
@@ -102,6 +110,7 @@ namespace HomeBudget.Models
         public string Code { get; set; }
     }
 
+    [ExcludeFromCoverage]
     public class ForgotPasswordViewModel
     {
         [Required]

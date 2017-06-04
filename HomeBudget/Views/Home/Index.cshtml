@@ -1,10 +1,12 @@
-﻿@model List<List<HomeBudget.Controllers.TableCell>>
+﻿@model HomeBudget.Controllers.Tables.Table
 @{
     ViewBag.Title = "Home Page";
 }
 
 @using (Html.BeginForm("OnSubmit", "Home"))
 {
+    @Html.HiddenFor(a => Model.RowsCount)
+    @Html.HiddenFor(a => Model.ColumnsCount)
     <table class="table-bordered dataTable">
         <tr>
             <th>
@@ -13,12 +15,12 @@
             <th >bb</th>
         </tr>
 
-        @foreach (var item in Model) {
+        @foreach (var row in Model.GetRows()) {
             <tr>
-                @foreach (var str in item)
+                @foreach (var cell in row.GetCells())
                 {
                     <td>
-                        <input style="background-color: @str.BackgroundColor" id="str" name="str" value="@str.Value" type="text" class="form-control">
+                        <input style="background-color: @cell.BackgroundColor" id="cell" name="cells" value="@cell.Value" type="text" class="form-control">
                     </td>
                 }
             </tr>

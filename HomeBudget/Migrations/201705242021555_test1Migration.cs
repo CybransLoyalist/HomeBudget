@@ -1,9 +1,9 @@
 namespace HomeBudget.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
-    public partial class test1 : DbMigration
+
+    [ExcludeFromCoverage]
+    public partial class test1Migration : DbMigration
     {
         public override void Up()
         {

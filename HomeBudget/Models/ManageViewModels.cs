@@ -5,6 +5,7 @@ using Microsoft.Owin.Security;
 
 namespace HomeBudget.Models
 {
+    [ExcludeFromCoverage]
     public class IndexViewModel
     {
         public bool HasPassword { get; set; }
@@ -14,17 +15,20 @@ namespace HomeBudget.Models
         public bool BrowserRemembered { get; set; }
     }
 
+    [ExcludeFromCoverage]
     public class ManageLoginsViewModel
     {
         public IList<UserLoginInfo> CurrentLogins { get; set; }
         public IList<AuthenticationDescription> OtherLogins { get; set; }
     }
 
+    [ExcludeFromCoverage]
     public class FactorViewModel
     {
         public string Purpose { get; set; }
     }
 
+    [ExcludeFromCoverage]
     public class SetPasswordViewModel
     {
         [Required]
@@ -39,6 +43,7 @@ namespace HomeBudget.Models
         public string ConfirmPassword { get; set; }
     }
 
+    [ExcludeFromCoverage]
     public class ChangePasswordViewModel
     {
         [Required]
@@ -58,6 +63,7 @@ namespace HomeBudget.Models
         public string ConfirmPassword { get; set; }
     }
 
+    [ExcludeFromCoverage]
     public class AddPhoneNumberViewModel
     {
         [Required]
@@ -66,6 +72,7 @@ namespace HomeBudget.Models
         public string Number { get; set; }
     }
 
+    [ExcludeFromCoverage]
     public class VerifyPhoneNumberViewModel
     {
         [Required]
@@ -78,6 +85,7 @@ namespace HomeBudget.Models
         public string PhoneNumber { get; set; }
     }
 
+    [ExcludeFromCoverage]
     public class ConfigureTwoFactorViewModel
     {
         public string SelectedProvider { get; set; }

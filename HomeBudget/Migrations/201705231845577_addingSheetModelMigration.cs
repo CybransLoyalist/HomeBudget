@@ -1,9 +1,9 @@
 namespace HomeBudget.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
-    public partial class addingSheetModel : DbMigration
+
+    [ExcludeFromCoverage]
+    public partial class addingSheetModelMigration : DbMigration
     {
         public override void Up()
         {

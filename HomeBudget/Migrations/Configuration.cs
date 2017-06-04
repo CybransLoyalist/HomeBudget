@@ -1,10 +1,8 @@
 namespace HomeBudget.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
+    [ExcludeFromCoverage]
     internal sealed class Configuration : DbMigrationsConfiguration<HomeBudget.Models.ApplicationDbContext>
     {
         public Configuration()

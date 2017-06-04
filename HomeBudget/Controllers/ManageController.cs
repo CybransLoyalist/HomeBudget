@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -11,6 +10,7 @@ using HomeBudget.Models;
 namespace HomeBudget.Controllers
 {
     [Authorize]
+    [ExcludeFromCoverage]
     public class ManageController : Controller
     {
         private ApplicationSignInManager _signInManager;
