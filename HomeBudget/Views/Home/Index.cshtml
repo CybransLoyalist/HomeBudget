@@ -3,32 +3,3 @@
     ViewBag.Title = "Home Page";
 }
 
-@using (Html.BeginForm("OnSubmit", "Home"))
-{
-    @Html.HiddenFor(a => Model.RowsCount)
-    @Html.HiddenFor(a => Model.ColumnsCount)
-    <table class="table-bordered dataTable">
-        <tr>
-            <th>
-                aa
-            </th>
-            <th >bb</th>
-        </tr>
-
-        @foreach (var row in Model.GetRows()) {
-            <tr>
-                @foreach (var cell in row.GetCells())
-                {
-                    <td>
-                        <input style="background-color: @cell.BackgroundColor" id="cell" name="cells" value="@cell.Value" type="text" class="form-control">
-                    </td>
-                }
-            </tr>
-        }
-    </table>
-    <script>
-        $("th").resizable();
-
-    </script>
-    <input type="submit" value="Save changes" class="btn btn-default" />
-}

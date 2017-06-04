@@ -3,13 +3,13 @@
 namespace HomeBudget.Models
 {
     [ExcludeFromCoverage]
-    public class Sheet
+    public class YearSheet
     {
         [Key]
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public int Year { get; set; }
 
-        public string Name2 { get; set; }
+        public ApplicationUser User { get; set; }
     }
 }
