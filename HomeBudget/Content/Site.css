@@ -219,7 +219,8 @@ ul .dropdown-menu {
 }
 
 .dataTable , .dataTable th, .dataTable td{
-    border-width: 0 !important
+    border-width: 0 !important;
+    padding: 0;
 }
 
 

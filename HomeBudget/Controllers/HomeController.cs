@@ -34,13 +34,31 @@ namespace HomeBudget.Controllers
                 var list = new List<TableCell>();
                 for (int j = 0; j < data[0].Count; ++j)
                 {
-                    list.Add(new TableCell { Value = data[i][j], BackgroundColor = (j % 4 == 0 || j % 4 == 1) ? "var(--color2)" : "var(--color3)" });
+                    list.Add(new TableCell { Value = data[i][j] });
                 }
                 data2.Add(list);
             }
-
+            //BackgroundColor = (j % 4 == 0 || j % 4 == 1) ? "var(--color2)" : "var(--color3)"
             var table = new Table(data2.To2DArray());
+            var columns = table.GetColumns();
+            for (int i = 0; i < columns.Count; i++)
+            {
+                var column = columns[i];
+                foreach (var tableCell in column.GetCells())
+                {
+                    tableCell.BackgroundColor = (i % 4 == 0 || i % 4 == 1) ? "var(--color2)" : "var(--color3)";
+                }
+            }
+            foreach (var cell in columns.Last().GetCells())
+            {
+                cell.BackgroundColor = "var(--color4)";
+            }
 
+            var tableRows = table.GetRows();
+            foreach (var cell in tableRows[1].GetCells())
+            {
+                cell.BackgroundColor = "var(--color5)";
+            }
 
             return View(table);
         }
