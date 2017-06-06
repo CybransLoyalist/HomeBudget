@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Security.Principal;
-using System.Web;
-using Microsoft.AspNet.Identity;
 
 namespace HomeBudget.Models.Repositories
 {
@@ -19,9 +14,8 @@ namespace HomeBudget.Models.Repositories
             return DbContext.YearSheets;
         }
 
-        public YearSheet GetForUser(IPrincipal user)
+        public virtual YearSheet GetForUser(string userId)
         {
-            var userId = user.Identity.GetUserId();
             return GetDbSet().FirstOrDefault(a => a.User.Id == userId);
         }
     }

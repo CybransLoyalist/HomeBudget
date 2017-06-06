@@ -1,8 +1,8 @@
 namespace HomeBudget.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
     
+    [ExcludeFromCoverage]
     public partial class addingYearSheetMigration : DbMigration
     {
         public override void Up()

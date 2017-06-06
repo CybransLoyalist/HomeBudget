@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using HomeBudget.Models.Repositories;
+using Microsoft.AspNet.Identity;
 
 namespace HomeBudget.Controllers
 {
@@ -19,7 +20,7 @@ namespace HomeBudget.Controllers
 
         public ActionResult Current()
         {
-            var yearSheet = _yearSheetRepository.GetForUser(User);
+            var yearSheet = _yearSheetRepository.GetForUser(User.Identity.GetUserId());
             return View(yearSheet);
         }
     }

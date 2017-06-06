@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using HomeBudget.Models.Repositories;
+using Microsoft.AspNet.Identity;
 
 namespace HomeBudget.Controllers
 {
@@ -18,8 +19,8 @@ namespace HomeBudget.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
-
-            var yearSheet = _yearSheetRepository.GetForUser(User);
+            
+            var yearSheet = _yearSheetRepository.GetForUser(User.Identity.GetUserId());
             if (yearSheet == null)
             {
                 return RedirectToAction("NoYearSheetPresent", "YearSheet");
@@ -30,15 +31,11 @@ namespace HomeBudget.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

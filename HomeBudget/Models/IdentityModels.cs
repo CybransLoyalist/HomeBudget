@@ -31,6 +31,6 @@ namespace HomeBudget.Models
             return new ApplicationDbContext();
         }
 
-        public System.Data.Entity.DbSet<HomeBudget.Models.YearSheet> YearSheets { get; set; }
+        public virtual System.Data.Entity.DbSet<HomeBudget.Models.YearSheet> YearSheets { get; set; }
     }
 }

@@ -13,22 +13,22 @@ namespace HomeBudget.Models.Repositories
 
         protected abstract DbSet<TModel> GetDbSet();
 
-        public TModel GetById(int id)
+        public virtual TModel GetById(int id)
         {
             return GetDbSet().Find(id);
         }
 
-        public void Add(TModel item)
+        public virtual void Add(TModel item)
         {
             GetDbSet().Add(item);
         }
 
-        public void Remove(TModel item)
+        public virtual void Remove(TModel item)
         {
             GetDbSet().Remove(item);
         }
 
-        public void SaveChanges()
+        public virtual void SaveChanges()
         {
             DbContext.SaveChanges();
         }

@@ -11,6 +11,8 @@ namespace HomeBudget.App_Start
     using Ninject;
     using Ninject.Web.Common;
 
+    [ExcludeFromCoverage]
+
     public static class NinjectWebCommon 
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
