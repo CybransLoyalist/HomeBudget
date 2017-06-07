@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace HomeBudget.Models.Repositories
 {
-    public class YearSheetRepository : Repository<YearSheet>
+    public class YearSheetsRepository : Repository<YearSheet>
     {
-        public YearSheetRepository(ApplicationDbContext dbContext) : base(dbContext)
+        public YearSheetsRepository(ApplicationDbContext dbContext) : base(dbContext)
         {
         }
 

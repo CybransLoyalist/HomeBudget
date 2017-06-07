@@ -6,11 +6,11 @@ namespace HomeBudget.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly YearSheetRepository _yearSheetRepository;
+        private readonly YearSheetsRepository _yearSheetsRepository;
 
-        public HomeController(YearSheetRepository yearSheetRepository)
+        public HomeController(YearSheetsRepository yearSheetsRepository)
         {
-            _yearSheetRepository = yearSheetRepository;
+            _yearSheetsRepository = yearSheetsRepository;
         }
 
         public ActionResult Index()
@@ -20,7 +20,7 @@ namespace HomeBudget.Controllers
                 return RedirectToAction("Login", "Account");
             }
             
-            var yearSheet = _yearSheetRepository.GetForUser(User.Identity.GetUserId());
+            var yearSheet = _yearSheetsRepository.GetForUser(User.Identity.GetUserId());
             if (yearSheet == null)
             {
                 return RedirectToAction("NoYearSheetPresent", "YearSheet");

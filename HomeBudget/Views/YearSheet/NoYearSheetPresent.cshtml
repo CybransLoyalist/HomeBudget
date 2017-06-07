@@ -1,8 +1,16 @@
 ﻿@model dynamic
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "No sheet for current year";
     Layout = "../Shared/_Layout.cshtml";
 }
+<div style="text-align: center; ">
+    <div class="centeredDiv contentBox" style="display: inline-block;">
+        <h1>
+            <i>You don't have a sheet for current year.</i><br /> <br />
+            <button type="button" class="btn btn-default btn-circle btn-lg" onclick="location.href = '@Url.Action("GetNewYearSheetCreatingPage", "YearSheet")'"><i class="glyphicon glyphicon-plus"></i></button>
+        </h1>
 
-<h2>title</h2>
+    </div>
+</div>
+

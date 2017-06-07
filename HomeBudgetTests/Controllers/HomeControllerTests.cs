@@ -11,13 +11,13 @@ namespace HomeBudgetTests.Controllers
     class HomeControllerTests
     {
         private HomeController _sut;
-        private Mock<YearSheetRepository> _yearSheetRepositoryMock;
+        private Mock<YearSheetsRepository> _yearSheetRepositoryMock;
         private Mock<ControllerContext> _controllerContextMock;
 
         [SetUp]
         public void SetUp()
         {
-            _yearSheetRepositoryMock = new Mock<YearSheetRepository>(null);
+            _yearSheetRepositoryMock = new Mock<YearSheetsRepository>(null);
             _sut = new HomeController(_yearSheetRepositoryMock.Object);
 
             _controllerContextMock = new Mock<ControllerContext>();

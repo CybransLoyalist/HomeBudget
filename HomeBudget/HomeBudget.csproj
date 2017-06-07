@@ -213,7 +213,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="App_Code\ExcludeFromCoverageAttribute.cs" />
     <Compile Include="Controllers\Tables\TableCell.cs" />
-    <Compile Include="Controllers\YearSheetController.cs" />
+    <Compile Include="Controllers\YearSheets\YearSheetController.cs" />
+    <Compile Include="Controllers\YearSheets\YearSheetCreator.cs" />
     <Compile Include="HelpersAndExtensions\FlatToMultidimensionalArray.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -244,8 +245,9 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OverviewSheet.cs" />
+    <Compile Include="Models\Repositories\ApplicationUsersRepository.cs" />
     <Compile Include="Models\Repositories\Repository.cs" />
-    <Compile Include="Models\Repositories\YearSheetRepository.cs" />
+    <Compile Include="Models\Repositories\YearSheetsRepository.cs" />
     <Compile Include="Models\YearSheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -360,6 +362,7 @@
     <Content Include="Views\Shared\_TopNavBarPartial.cshtml" />
     <Content Include="Views\YearSheet\NoYearSheetPresent.cshtml" />
     <Content Include="Views\YearSheet\Current.cshtml" />
+    <Content Include="Views\YearSheet\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

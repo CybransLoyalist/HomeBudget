@@ -1,0 +1,25 @@
+﻿@model HomeBudget.Models.YearSheet
+
+@{
+    ViewBag.Title = "New yearly sheet";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("CreateNew", "YearSheet", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <h2>New yearly sheet</h2>
+    @Html.HiddenFor(a => a.User)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Year, new { @class = "col-md-1 control-label" })
+        <div class="col-md-11">
+            @Html.TextBoxFor(m => m.Year, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-1"></div>
+        <div class="col-md-11">
+            <input type="submit" class="btn btn-default" value="Save"/>
+        </div>
+    </div>
+}

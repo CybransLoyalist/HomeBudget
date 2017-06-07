@@ -4,7 +4,7 @@ using HomeBudget.Controllers.Tables;
 using HomeBudget.Extensions;
 using NUnit.Framework;
 
-namespace HomeBusgetTests
+namespace HomeBudgetTests.Controllers.Tables
 {
     [TestFixture]
     public class TableTests
@@ -100,6 +100,16 @@ namespace HomeBusgetTests
             Assert.AreEqual("row0,col1", column2.GetCells()[0].Value);
             Assert.AreEqual("row1,col1", column2.GetCells()[1].Value);
             Assert.AreEqual("row2,col1", column2.GetCells()[2].Value);
+        }
+
+        [Test]
+        public void BackgroundColorsInNewTable_ShallBeNull()
+        {
+            var cells = CreateCellsForTableOf3RowsAnd2Cols();
+
+            var table = new Table(cells);
+
+            Assert.Null(table.GetColumns()[0].GetCells()[0].BackgroundColor);
         }
 
         private static TableCell[,] CreateCellsForTableOf3RowsAnd2Cols()

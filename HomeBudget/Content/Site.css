@@ -234,8 +234,46 @@ ul .dropdown-menu {
     max-height: 23px
 }
 
+.centeredDiv {
+    margin-right: auto;
+    margin-left: auto;
+}
 
-/*.dataTable td:nth-child(4n+1) .form-control ,*/
-/*.dataTable td:nth-child(4n+2) .form-control {*/
-/*    background-color: var(--color3);*/
-/*}*/
+.contentBox {
+    background-color: var(--color2);
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid var(--color5);
+    border-radius: 10px;
+    color: var(--color5);
+}
+
+body{margin:40px;}
+
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+    border-color: var(--color5);
+}
+    .btn-circle.btn-lg {
+        width: 50px;
+        height: 50px;
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.33;
+        border-radius: 25px;
+    }
+.btn-circle.btn-xl {
+    width: 70px;
+    height: 70px;
+    padding: 10px 16px;
+    font-size: 24px;
+    line-height: 1.33;
+    border-radius: 35px;
+}
