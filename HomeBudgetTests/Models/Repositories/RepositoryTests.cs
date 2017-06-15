@@ -28,18 +28,19 @@ namespace HomeBudgetTests.Models.Repositories
         private Mock<ApplicationDbContext> _applicationDbContextMock;
         private readonly DbSetMockCreator _dbSetMockCreator = new DbSetMockCreator();
         private Mock<DbSet<YearSheet>> _dbSetMock;
+        private IQueryable<YearSheet> _data;
 
         [SetUp]
         public void SetUp()
         {
-            var data = new List<YearSheet>
+            _data = new List<YearSheet>
             {
                 new YearSheet { Year = 2001 },
                 new YearSheet { Year = 2002 },
                 new YearSheet { Year = 2003 },
             }.AsQueryable();
 
-            _dbSetMock = _dbSetMockCreator.CreateDbContextMock(data);
+            _dbSetMock = _dbSetMockCreator.CreateDbContextMock(_data);
 
             _applicationDbContextMock = new Mock<ApplicationDbContext>();
             _applicationDbContextMock.Setup(c => c.YearSheets).Returns(_dbSetMock.Object);
@@ -89,6 +90,13 @@ namespace HomeBudgetTests.Models.Repositories
             _sut.SaveChanges();
 
             _applicationDbContextMock.Verify(a => a.SaveChanges());
+        }
+
+        [Test]
+        public void GetDataInFullFormat_ShallGetDbSet()
+        {
+            _sut.GetDataInFullFormat();
+            _applicationDbContextMock.VerifyGet(a => a.YearSheets);
         }
     }
 }

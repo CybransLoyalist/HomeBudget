@@ -9,17 +9,17 @@ namespace HomeBudget.Controllers.YearSheets
     public class YearSheetController : Controller
     {
         private readonly YearSheetsRepository _yearSheetsRepository;
-        private readonly SheetsRepository _sheetsRepository;
         private readonly YearSheetCreator _yearSheetCreator;
+        private readonly YearSheetRelatedDataRemover _yearSheetRelatedDataRemover;
 
         public YearSheetController(
             YearSheetsRepository yearSheetsRepository,
-            SheetsRepository sheetsRepository,
-            YearSheetCreator yearSheetCreator)
+            YearSheetCreator yearSheetCreator,
+            YearSheetRelatedDataRemover yearSheetRelatedDataRemover)
         {
             _yearSheetsRepository = yearSheetsRepository;
-            _sheetsRepository = sheetsRepository;
             _yearSheetCreator = yearSheetCreator;
+            _yearSheetRelatedDataRemover = yearSheetRelatedDataRemover;
         }
 
         public ActionResult NoYearSheetPresent()
@@ -74,16 +74,7 @@ namespace HomeBudget.Controllers.YearSheets
 
         public ActionResult Delete(int id)
         {
-            var sheetsToBeDeleted = _sheetsRepository.GetAllForYearSheet(id);
-            foreach (var sheetToBeDeleted in sheetsToBeDeleted)
-            {
-                _sheetsRepository.Remove(sheetToBeDeleted);
-            }
-            _sheetsRepository.SaveChanges();
-
-            var yearSheetToBeDeleted = _yearSheetsRepository.GetById(id);
-            _yearSheetsRepository.Remove(yearSheetToBeDeleted);
-            _yearSheetsRepository.SaveChanges();
+            _yearSheetRelatedDataRemover.RemoveFor(id);
 
             var yearSheets = _yearSheetsRepository.GetAllForUser(User.Identity.GetUserId());
             return View("Index", yearSheets);

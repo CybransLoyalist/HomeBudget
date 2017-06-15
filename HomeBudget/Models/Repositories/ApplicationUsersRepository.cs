@@ -3,6 +3,7 @@ using System.Linq;
 
 namespace HomeBudget.Models.Repositories
 {
+    [ExcludeFromCoverage]
     public class ApplicationUsersRepository : Repository<ApplicationUser>
     {
         public ApplicationUsersRepository(ApplicationDbContext dbContext) : base(dbContext)

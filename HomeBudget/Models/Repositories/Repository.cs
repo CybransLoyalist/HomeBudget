@@ -14,7 +14,7 @@ namespace HomeBudget.Models.Repositories
 
         protected abstract DbSet<TModel> GetDbSet();
 
-        protected virtual IQueryable<TModel> GetDataInFullFormat()
+        public virtual IQueryable<TModel> GetDataInFullFormat()
         {
             return GetDbSet();
         }
@@ -43,7 +43,8 @@ namespace HomeBudget.Models.Repositories
             DbContext.SaveChanges();
         }
 
-        public void SetModified(TModel yearSheet)
+        [ExcludeFromCoverage]
+        public virtual void SetModified(TModel yearSheet)
         {
             DbContext.Entry(yearSheet).State = EntityState.Modified;
         }

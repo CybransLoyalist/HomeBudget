@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace HomeBudget.Models.Repositories
 {
+    [ExcludeFromCoverage]
     public class YearSheetsRepository : Repository<YearSheet>
     {
         public YearSheetsRepository(ApplicationDbContext dbContext) : base(dbContext)
@@ -15,7 +16,7 @@ namespace HomeBudget.Models.Repositories
             return DbContext.YearSheets;
         }
 
-        protected override IQueryable<YearSheet> GetDataInFullFormat()
+        public override IQueryable<YearSheet> GetDataInFullFormat()
         {
             return GetDbSet().Include(a => a.User).Include(a => a.Sheets);
         }

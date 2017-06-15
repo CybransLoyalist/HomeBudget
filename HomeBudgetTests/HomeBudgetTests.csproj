@@ -85,12 +85,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeControllerTests.cs" />
+    <Compile Include="Controllers\YearSheets\ControlletTests.cs" />
     <Compile Include="Controllers\YearSheets\YearSheetControllerTests.cs" />
     <Compile Include="Controllers\YearSheets\YearSheetCreatorTests.cs" />
-    <Compile Include="Helpers\FlatToMultidimensionalArrayTests.cs" />
-    <Compile Include="Helpers\ListExtensionsTests.cs" />
-    <Compile Include="Models\Repositories\ApplicationUsersRepositoryTests.cs" />
-    <Compile Include="Models\Repositories\YearSheetsRepositoryTests.cs" />
+    <Compile Include="HelpersAndExtensionsTests\FlatToMultidimensionalArrayTests.cs" />
+    <Compile Include="HelpersAndExtensionsTests\ListExtensionsTests.cs" />
+    <Compile Include="HelpersAndExtensionsTests\StringExtensionsTests.cs" />
     <Compile Include="TestingHelpers\DbSetMockCreator.cs" />
     <Compile Include="Models\Repositories\RepositoryTests.cs" />
     <Compile Include="Controllers\Tables\TableTests.cs" />

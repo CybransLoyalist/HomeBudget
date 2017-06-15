@@ -215,6 +215,7 @@
     <Compile Include="Controllers\Tables\TableCell.cs" />
     <Compile Include="Controllers\YearSheets\YearSheetController.cs" />
     <Compile Include="Controllers\YearSheets\YearSheetCreator.cs" />
+    <Compile Include="Controllers\YearSheets\YearSheetRelatedDataRemover.cs" />
     <Compile Include="HelpersAndExtensions\FlatToMultidimensionalArray.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />

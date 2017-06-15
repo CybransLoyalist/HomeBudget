@@ -77,5 +77,29 @@ namespace HomeBudgetTests.Controllers
             Assert.IsInstanceOf<ViewResult>(result);
             Assert.NotNull(result);
         }
+
+        [Test]
+        public void YearSheets_IfUserNotAuthenticated_ShallRedirectTo_Login()
+        {
+            _controllerContextMock.SetupGet(p => p.HttpContext.User.Identity.IsAuthenticated).Returns(false);
+
+            var result = _sut.YearSheets();
+
+            Assert.IsInstanceOf<RedirectToRouteResult>(result);
+            Assert.AreEqual("Account", (result as RedirectToRouteResult).RouteValues["controller"]);
+            Assert.AreEqual("Login", (result as RedirectToRouteResult).RouteValues["action"]);
+        }
+
+        [Test]
+        public void YearSheets_IfUserAuthenticated_ShallRedirectTo_YearSheets_ShowList()
+        {
+            _controllerContextMock.SetupGet(p => p.HttpContext.User.Identity.IsAuthenticated).Returns(true);
+
+            var result = _sut.YearSheets();
+
+            Assert.IsInstanceOf<RedirectToRouteResult>(result);
+            Assert.AreEqual("YearSheet", (result as RedirectToRouteResult).RouteValues["controller"]);
+            Assert.AreEqual("ShowList", (result as RedirectToRouteResult).RouteValues["action"]);
+        }
     }
 }

@@ -14,6 +14,7 @@ namespace HomeBudget.Models
         YearSpan
     }
 
+    [ExcludeFromCoverage]
     public class Sheet
     {
         [Key]
