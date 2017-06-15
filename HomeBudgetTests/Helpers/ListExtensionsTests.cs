@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using HomeBudget.Extensions;
+using HomeBudget.HelpersAndExtensions;
 using NUnit.Framework;
 
 namespace HomeBudgetTests.Helpers

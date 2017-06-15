@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Linq;
 
 namespace HomeBudget.Models.Repositories
 {
@@ -13,6 +14,11 @@ namespace HomeBudget.Models.Repositories
 
         protected abstract DbSet<TModel> GetDbSet();
 
+        protected virtual IQueryable<TModel> GetDataInFullFormat()
+        {
+            return GetDbSet();
+        }
+
         public virtual TModel GetById(int id)
         {
             return GetDbSet().Find(id);
@@ -25,12 +31,21 @@ namespace HomeBudget.Models.Repositories
 
         public virtual void Remove(TModel item)
         {
+            // if (item != null)
+            // {
+            System.Diagnostics.StackTrace t = new System.Diagnostics.StackTrace();
             GetDbSet().Remove(item);
+           // }
         }
 
         public virtual void SaveChanges()
         {
             DbContext.SaveChanges();
+        }
+
+        public void SetModified(TModel yearSheet)
+        {
+            DbContext.Entry(yearSheet).State = EntityState.Modified;
         }
 
     }

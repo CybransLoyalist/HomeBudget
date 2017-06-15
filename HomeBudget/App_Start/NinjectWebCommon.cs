@@ -1,3 +1,5 @@
+using HomeBudget.Models.Repositories;
+
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(HomeBudget.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(HomeBudget.App_Start.NinjectWebCommon), "Stop")]
 
@@ -10,6 +12,7 @@ namespace HomeBudget.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using HomeBudget.Models;
 
     [ExcludeFromCoverage]
 
@@ -63,6 +66,8 @@ namespace HomeBudget.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<ApplicationDbContext>().ToSelf().InRequestScope();
+            //kernel.Bind<YearSheetsRepository>().ToSelf().InRequestScope();
         }        
     }
 }

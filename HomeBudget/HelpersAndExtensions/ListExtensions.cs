@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HomeBudget.Extensions
+namespace HomeBudget.HelpersAndExtensions
 {
     public static class ListExtensions
     {

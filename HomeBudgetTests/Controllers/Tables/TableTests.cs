@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using HomeBudget.Controllers.Tables;
-using HomeBudget.Extensions;
+using HomeBudget.HelpersAndExtensions;
 using NUnit.Framework;
 
 namespace HomeBudgetTests.Controllers.Tables

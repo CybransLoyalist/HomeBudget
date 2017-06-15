@@ -224,6 +224,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HelpersAndExtensions\StringExtensions.cs" />
     <Compile Include="Migrations\201705231840175_initialMigration.cs" />
     <Compile Include="Migrations\201705231840175_initialMigration.Designer.cs">
       <DependentUpon>201705231840175_initialMigration.cs</DependentUpon>
@@ -240,6 +241,22 @@
     <Compile Include="Migrations\201706041833094_addingYearSheetMigration.Designer.cs">
       <DependentUpon>201706041833094_addingYearSheetMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706110750594_addingSheetModel.cs" />
+    <Compile Include="Migrations\201706110750594_addingSheetModel.Designer.cs">
+      <DependentUpon>201706110750594_addingSheetModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706110805106_addingRefToYearSheetFromSheet.cs" />
+    <Compile Include="Migrations\201706110805106_addingRefToYearSheetFromSheet.Designer.cs">
+      <DependentUpon>201706110805106_addingRefToYearSheetFromSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706110840046_addingTitleToSheet.cs" />
+    <Compile Include="Migrations\201706110840046_addingTitleToSheet.Designer.cs">
+      <DependentUpon>201706110840046_addingTitleToSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706110841422_addingMaxLengthToSheetType.cs" />
+    <Compile Include="Migrations\201706110841422_addingMaxLengthToSheetType.Designer.cs">
+      <DependentUpon>201706110841422_addingMaxLengthToSheetType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -247,6 +264,7 @@
     <Compile Include="Models\OverviewSheet.cs" />
     <Compile Include="Models\Repositories\ApplicationUsersRepository.cs" />
     <Compile Include="Models\Repositories\Repository.cs" />
+    <Compile Include="Models\Repositories\SheetsRepository.cs" />
     <Compile Include="Models\Repositories\YearSheetsRepository.cs" />
     <Compile Include="Models\YearSheet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -361,8 +379,10 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_TopNavBarPartial.cshtml" />
     <Content Include="Views\YearSheet\NoYearSheetPresent.cshtml" />
-    <Content Include="Views\YearSheet\Current.cshtml" />
-    <Content Include="Views\YearSheet\Create.cshtml" />
+    <Content Include="Views\YearSheet\YearSheetView.cshtml" />
+    <Content Include="Views\YearSheet\Edit.cshtml" />
+    <Content Include="Views\YearSheet\_YearSheet.cshtml" />
+    <Content Include="Views\YearSheet\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -386,6 +406,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706041833094_addingYearSheetMigration.resx">
       <DependentUpon>201706041833094_addingYearSheetMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706110750594_addingSheetModel.resx">
+      <DependentUpon>201706110750594_addingSheetModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706110805106_addingRefToYearSheetFromSheet.resx">
+      <DependentUpon>201706110805106_addingRefToYearSheetFromSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706110840046_addingTitleToSheet.resx">
+      <DependentUpon>201706110840046_addingTitleToSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706110841422_addingMaxLengthToSheetType.resx">
+      <DependentUpon>201706110841422_addingMaxLengthToSheetType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -38,5 +38,15 @@ namespace HomeBudget.Controllers
         {
             return View();
         }
+
+        public ActionResult YearSheets()
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            return RedirectToAction("ShowList", "YearSheet");
+        }
     }
 }
